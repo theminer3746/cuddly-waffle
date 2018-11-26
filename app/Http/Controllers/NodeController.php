@@ -21,14 +21,14 @@ class NodeController extends Controller
 
     public function updateData(Request $request)
     {
-        if(!$this->nodeData->where('id', $request->id)->exists()){
+        if (!$this->nodeData->where('id', $request->id)->exists()) {
             return response()->json([], 404);
         }
 
         $updateResult = $this->nodeData
             ->setDataById($request->id, $request->alarm, $request->letAlarm, $request->alarmStop);
 
-        if($updateResult){
+        if ($updateResult) {
             return response()->json([], 200);
         } else {
             return response()->json([], 400);
