@@ -13,9 +13,9 @@ class NodeController extends Controller
         $this->nodeData = $nodeData;
     }
 
-    public function getData(Request $request)
+    public function getData(Request $request, $id)
     {
-        $data = $this->nodeData->getDataById($request->id);
+        $data = $this->nodeData->getDataById($id);
         return response()->json($data, 200);
     }
 
