@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\NodeData;
 use Illuminate\Http\Request;
 
 class NodeController extends Controller
