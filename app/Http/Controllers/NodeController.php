@@ -9,9 +9,9 @@ class NodeController extends Controller
 {
     private $nodeData;
 
-    public function __consturct(NodeData $nodeData)
+    public function __consturct()
     {
-        $this->nodeData = $nodeData;
+        $this->nodeData = new NodeData();
     }
 
     public function getData(Request $request, $id)
