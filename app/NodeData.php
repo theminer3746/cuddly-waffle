@@ -26,12 +26,11 @@ class NodeData extends Model
             ->first();
     }
 
-    public function setDataById($nodeId, $alarm, $let_alarm, $alarm_stop)
+    public function setDataById($nodeId, $alarm, $alarm_stop)
     {
         return $this->where('id', $nodeId)
             ->update([
                 'alarm' => $alarm,
-                'let_alarm' => $let_alarm,
                 'alarm_stop' => $alarm_stop,
             ]);
     }

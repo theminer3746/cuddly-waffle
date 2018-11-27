@@ -27,7 +27,7 @@ class NodeController extends Controller
         }
 
         $updateResult = $this->nodeData
-            ->setDataById($request->id, $request->alarm, $request->letAlarm, $request->alarmStop);
+            ->setDataById($request->id, $request->alarm, $request->alarm_stop);
 
         if ($updateResult) {
             return response()->json([], 200);
