@@ -27,4 +27,20 @@ class NodeController extends Controller
             return response()->json([], 400);
         }
     }
+
+    public function ackStop(Request $request)
+    {
+        if (!(new \App\NodeData())->where('id', $request->id)->exists()) {
+            return response()->json([], 404);
+        }
+
+        $updateResult = (new \App\NodeData())
+            ->setDataById($request->id, $request->alarm, false);
+
+        if ($updateResult) {
+            return response()->json([], 200);
+        } else {
+            return response()->json([], 400);
+        }
+    }
 }

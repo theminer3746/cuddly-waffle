@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/node/{id}', 'NodeController@getData');
 
 Route::post('/node', 'NodeController@updateData');
+Route::post('/node/alarm', 'NodeController@ackStop');
