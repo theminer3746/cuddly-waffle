@@ -17,6 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/node', 'NodeController@getData');
+Route::get('/node/{id}', 'NodeController@getData');
 
-Route::post('/node/{id}', 'NodeController@updateData');
+Route::post('/node', 'NodeController@updateData');
