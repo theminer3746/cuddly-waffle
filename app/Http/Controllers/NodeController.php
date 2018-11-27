@@ -2,31 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\NodeData;
 use Illuminate\Http\Request;
 
 class NodeController extends Controller
 {
-    private $nodeData;
-
-    public function __consturct()
-    {
-        $this->nodeData = new NodeData();
-    }
-
     public function getData(Request $request, $id)
     {
-        $data = $this->nodeData->getDataById($id);
+        $data = (new \App\NodeData())->getDataById($id);
         return response()->json($data, 200);
     }
 
     public function updateData(Request $request)
     {
-        if (!$this->nodeData->where('id', $request->id)->exists()) {
+        if (!(new \App\NodeData())->where('id', $request->id)->exists()) {
             return response()->json([], 404);
         }
 
-        $updateResult = $this->nodeData
+        $updateResult = (new \App\NodeData())
             ->setDataById($request->id, $request->alarm, $request->alarm_stop);
 
         if ($updateResult) {
